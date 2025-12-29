@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE LICENSE PLATE GAME</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Player Setup Modal -->
+    <div id="setup-modal" class="modal">
+        <div class="modal-content">
+            <h2>Add Players</h2>
+            <p class="modal-subtitle">Enter player names to start the game</p>
+            <div id="players-input-container">
+                <div class="player-input-row">
+                    <input type="text" class="player-input" placeholder="Player name" maxlength="20">
+                    <button class="remove-player-btn" style="display: none;">×</button>
+                </div>
+            </div>
+            <button id="add-more-players-btn" class="btn-secondary">+ Add Another Player</button>
+            <button id="start-game-btn" class="btn-primary" disabled>Start Game</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <button id="hamburger-menu-btn" class="hamburger-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1>THE LICENSE PLATE GAME</h1>
+            <div id="menu-dropdown" class="menu-dropdown">
+                <button id="restart-game-btn" class="menu-item">Restart Game</button>
+            </div>
+        </header>
+
+        <!-- Map Section -->
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <!-- Left: Player Leaderboard -->
+            <div class="leaderboard-panel">
+                <div id="leaderboard" class="leaderboard-scrollable"></div>
+            </div>
+
+            <!-- Right: Found Plate Input -->
+            <div class="found-plate-panel">
+                <button id="add-found-plate-btn" class="btn-add-plate">ADD FOUND PLATE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plate Selection Modal -->
+    <div id="plate-modal" class="modal" style="display: none;">
+        <div class="modal-content plate-modal-content">
+            <h2>Select License Plate</h2>
+            <div class="state-search">
+                <input type="text" id="state-search-input" placeholder="Search state/province...">
+            </div>
+            <div id="state-list" class="state-list-scrollable"></div>
+            <div class="modal-buttons">
+                <button id="cancel-plate-btn" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
