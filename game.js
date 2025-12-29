@@ -310,11 +310,11 @@ function setupPlateModal() {
 
         const stateName = option.dataset.stateName;
         
-        // Check if already found
-        if (gameState.foundStates.has(stateName)) {
-            alert('This plate has already been found!');
-            return;
-        }
+        // DISABLED: Check if already found - saved for later
+        // if (gameState.foundStates.has(stateName)) {
+        //     alert('This plate has already been found!');
+        //     return;
+        // }
 
         // Select state
         stateList.querySelectorAll('.state-option').forEach(opt => {
@@ -353,19 +353,21 @@ function renderStateList() {
         option.className = 'state-option';
         option.dataset.stateName = state['State Name'];
         
+        // DISABLED: Visual styling for found states - saved for later
         const isFound = gameState.foundStates.has(state['State Name']);
         
         option.innerHTML = `
-            <span class="state-option-name" style="${isFound ? 'text-decoration: line-through; color: #999;' : ''}">
+            <span class="state-option-name" style="${/* DISABLED: isFound ? 'text-decoration: line-through; color: #999;' : '' */ ''}">
                 ${state['State Name']}
             </span>
             <span class="state-option-points">${Math.round(state.SCORE)} pts</span>
         `;
 
-        if (isFound) {
-            option.style.opacity = '0.5';
-            option.style.cursor = 'not-allowed';
-        }
+        // DISABLED: Make found states look disabled - saved for later
+        // if (isFound) {
+        //     option.style.opacity = '0.5';
+        //     option.style.cursor = 'not-allowed';
+        // }
 
         stateList.appendChild(option);
     });
@@ -424,11 +426,11 @@ function closePlateModal() {
 function submitPlate() {
     if (!gameState.selectedState || !gameState.selectedPlayer) return;
 
-    // Check if already found
-    if (gameState.foundStates.has(gameState.selectedState)) {
-        alert('This plate has already been found!');
-        return;
-    }
+    // DISABLED: Check if already found - saved for later
+    // if (gameState.foundStates.has(gameState.selectedState)) {
+    //     alert('This plate has already been found!');
+    //     return;
+    // }
 
     const state = gameState.states.find(s => s['State Name'] === gameState.selectedState);
     const player = gameState.players.find(p => p.name === gameState.selectedPlayer);
